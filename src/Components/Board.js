@@ -41,7 +41,7 @@ function Board(props) {
         >{num.currentValue}</button>
         //push the og button in to the buncho of buttupn
         bunchoButonsArray.push(ogButton)
-        console.log(ogButton)
+        // console.log(ogButton)
     }
     return (
         //bring it back now yall
