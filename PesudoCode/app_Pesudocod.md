@@ -39,112 +39,40 @@ class App extends Component {
     }
     this.clickfunction = this.clickfunction.bind(this)
   }
- 
-  clickfunction(tileObject) {
-    for (let i = 0; i < 16; i++) {
-      if (this.state.dataForTheTile[i].currentValue === 0)
 
-      
-      for (let j = 0; j < this.state.dataForTheTile[i].possibleMoves.length; j++) {
-        console.log(this.state.dataForTheTile[i].possibleMoves, tileObject)
-        
-        
-        if (this.state.dataForTheTile[i].possibleMoves[j] == tileObject) {
-          console.log('hello')
-          // this.setState({dataForTheTile[tileObject].currentValue : dataForTheTile[i].currentValue})
-          //this.setState.dataForTheTile[tileObject]({currentValue :[i].currentValue})
-          
-          //  let tempArry = this.state.dataForTheTile[i].currentValue
-          //  console.log(tempArry)
-          //   this.setState({ tileObject: tempArry })
-            
 
-          
 
-            // console.log(this.state.dataForTheTile[i].possibleMoves, tileObject)
-            // console.log( this.state.dataForTheTile.possibleMoves.length)
-          } else { console.log('goodbye') }
-
-        }
+  clickfunction(i) {
+    let Tiles = this.state.dataForTheTile
+    // let Click = this.state.Clicks
+    let clicked_on_tile = i
+    console.log(clicked_on_tile)
+    
+    
+    for (let i = 0; i < possibleMoves.length; i++) {
+      if (Tiles[possibleMoves[i]].value === 0) {
+        Tiles[id].value = Tiles[possibleMoves[i]].value
+        Tiles[possibleMoves[i]].value = currentValue
+      }
     }
   }
-  // let clicked_on_tile = tileObject
-
-  //     if (clicked_on_tile.possibleMoves[i] = this.state.dataForTheTile.id) {
-
-  //     }
-  //   }
-  //   }
-  //  }
-  //   //
 
 
-  // console.log(clicked_on_tile.possibleMoves[i])
-  // console.log(clicked_on_tile.currentValue)
-  // console.log(clicked_on_tile.possibleMoves)
-  // this.swapFunction()
+      render() {
+        return (
+          <div>
+            <Header />
+            <Board
+              tile_Data_Raw={this.state.dataForTheTile}
+              tile_click={this.clickfunction}
+            />
 
+          </div>
 
-
-
-  //function 
-  //  that looks at the clicked on tiles [possibleMoves array]
-  //    loop throughh the clicked_on_tile.possibleMoves.length
-
-
-  // }
-
-  //how to find the tile with the value 0
-  // it would have to be close?
-  // the current tile clicked on can on ly move to another tile if
-  // the current valuse is the same as the posiiton
-  //   check (if)the tile for tile with current value of 0 ?
-  // if (clicked_on_tile.possibleMoves)
+        );
+      }
+    }
 
 
 
-
-  //  loop through the whole obbject aray 
-
-  //         if the tile that has a cuurent value of 0 check its id: 
-  //            if that id is  one of the numbers in the clicked_on_tile.possibleMoves[]
-  //        if the tile with a currentValue of 0 is within clicked_on_tile.possibleMoves[]
-  //        
-
-  //do I want to sawp this currentValue
-  //current value = current position
-  //thru array and determin if value at current value is id 
-  //possiblr move array = 
-  //is possible moves loop throu arrayon item 
-
-
-
-
-
-
-
-
-
-
-
-  render() {
-    return (
-
-      <div>
-
-        <Header />
-        <Board
-          tile_Data_Raw={this.state.dataForTheTile}
-          tile_click={this.clickfunction}
-        />
-
-      </div>
-
-    );
-  }
-}
-
-
-
-export default App;
-
+    export default App;

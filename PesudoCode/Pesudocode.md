@@ -52,6 +52,7 @@ class Board extends Component{
     //       {id:3, currentValue:3 ,currentRowX:3 ,currentCloumY:0, winPosition:3,0 }, 
 this.clickHandler= this.clickahndler.bind(this) *to bring state back up from tile to parent*
 
+*blank_tile_of_doom*
 
 clickHandler(e){
     this.setState({clicked: this.state.blank=true

@@ -1,37 +1,58 @@
-// import React, { Component } from 'react'
-// import React from 'react';
+import React from 'react';
 import 'bootstrap';
 
-import React from 'react'
+
+// rawData= props.tile_Data_Raw;
+// console.log(props.tile_Data_Raw)
+//mapp on an index idex id to thses sons of britches
+// let tile_Data_Mapped = props.tile_Data_Raw.map((index) => 
+// ) 
+// let mapped= props.tile_Data_Raw.map(())
+
+
 
 function Board(props) {
-// const idForKey= props.index;
-      console.log(props)
-  let arr = Array(16).fill().map((x, i) => i)
-  console.log(arr)
-  
-  let grid = []
-  let subArr = []
-  for (let j = 0; j < arr.length; j++) {
-    
-        let col = <button  onClick = {() => console.log('fuck')} key = {arr[j]}  className='col btn-primary' style={{ width: 150 }} >{j}</button>
-        //fuck your keys
-        subArr.push(col)
-        if ((j + 1) % 4 === 0) {
-            // console.log("in if")
+    //unprocessed data to be mangled
+    // console.log(props.tile_Data_Raw)
+    //for some reason id wil not pass i cant get in the array 
+    // console.log(num)
+    //holds all these buttons
+    let bunchoButonsArray = []
+    //lop through raw data 
+    for (let i = 0; i < props.tile_Data_Raw.length; i++) {
+        let num =  props.tile_Data_Raw[i]
+        // console.log(num)
+        //every loop creates one button per loop
+        //the og button is the blue print
+        let ogButton = <button
+            //col of buttons with an on clic
+                //it sould know when what and wher is being clicked
+                //what button 
+                    //button defined by the properties 
+                //where button 
+                     //button defined by the properties 
+                //when is was clicked?
+                //onclcick = the property tile_click passed to us from props
+                    //tile_click is = to the click function on  the app.js
 
-            let row = <div className='row' style={{ height: 150 }}>{subArr}</div>
-            grid.push(row)
-            subArr = []
-        }
+            className=" col-3 btn-primary" onClick = {()=> props.tile_click(i)}
+            style={{ height: 150 }} key={i} // keys aer the var i as we copunt through 
+            //KEYS NEED TO BE ID
+        >{num.currentValue}</button>
+        //push the og button in to the buncho of buttupn
+        bunchoButonsArray.push(ogButton)
+        console.log(ogButton)
     }
-    console.log(grid, subArr)
     return (
+        //bring it back now yall
         <div className='container'>
-            {grid}
+            <div className='row'>
+                {bunchoButonsArray}
+            </div>
         </div>
     )
 }
+
 export default Board;
 
 
@@ -41,36 +62,6 @@ export default Board;
 
 
 
-// import React, { Component } from 'react'
-
-// export default class Board extends Component {
-//     constructor(props){
-//     super(props);
-//     }
-
-//     render() {
-//         let arr = Array(16).fill().map((x, i) => i)
-//   let grid = []
-//   let subArr = []
-//   for (let j = 0; j < arr.length; j++) {
-//         let col = <div  className='col btn-primary' style={{ width: 150 }} >{j}</div>
-//         subArr.push(col)
-//         if ((j + 1) % 4 === 0) {
-//             console.log("in if")
-//             let row = <div className='row' style={{ height: 150 }}>{subArr}</div>
-//             grid.push(row)
-//             subArr = []
-//         }
-//     }
-//     console.log(grid, subArr)
-//     return (
-//         <div className='container'>
-//             {grid}
-//         </div>
-//     )
-        
-//     }
-// }
 
 
 
@@ -80,39 +71,5 @@ export default Board;
 
 
 
-
-// onClick={()=>this.handleClick(id)}
-
-
-// export default class Board extends Component {
-//     constructor(props) {
-//         super(props);
-
-
-//             let arr = Array(16).fill().map((x, i) => i)
-//             let board = []
-//             let subArr = []
-//             for (let j = 0; j < arr.length; j++) {
-//                 let col = <div className='col'>{j}</div>
-//                 subArr.push(col)
-//                 if ((j + 1) % 4 === 0) {
-//                     console.log("in if")
-//                     let row = <div className='row'>{subArr}</div>
-//                     board.push(row)
-//                     subArr = []
-//                 }
-//             }
-//             console.log(board, subArr)
-//         }
-
-
-//     render(){
-//     return(
-//       <div className = 'container' >
-//             { Board }
-//       </div>
-//     )
-//  }
-// }
 
 
