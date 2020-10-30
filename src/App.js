@@ -39,45 +39,47 @@ class App extends Component {
     }
     this.clickfunction = this.clickfunction.bind(this)
   }
- 
-  clickfunction(tileObject) {
+
+  clickfunction(tileID) {
+    //start looping throught the whole array 
     for (let i = 0; i < 16; i++) {
-      if (this.state.dataForTheTile[i].currentValue === 0)
+      //evil tile is defined as what we wil later be looking for
+      var evilTileValue = this.state.dataForTheTile[i].currentValue
+      //confirming it is 0 
+      if (evilTileValue === 0)
 
-      
-      for (let j = 0; j < this.state.dataForTheTile[i].possibleMoves.length; j++) {
-        console.log(this.state.dataForTheTile[i].possibleMoves, tileObject)
-        
-        
-        if (this.state.dataForTheTile[i].possibleMoves[j] == tileObject) {
-          console.log('hello')
-          // this.setState({dataForTheTile[tileObject].currentValue : dataForTheTile[i].currentValue})
-          //this.setState.dataForTheTile[tileObject]({currentValue :[i].currentValue})
-          
-          //  let tempArry = this.state.dataForTheTile[i].currentValue
-          //  console.log(tempArry)
-          //   this.setState({ tileObject: tempArry })
-            
+        //loop the array of possible moves of tile tha was clicked on
+        for (let j = 0; j < this.state.dataForTheTile[tileID].possibleMoves.length; j++) {
 
           
+          //posiblemvoes array  for the tile that was clicked on
+          var posibleMoveID = this.state.dataForTheTile[tileID].possibleMoves[j];
 
-            // console.log(this.state.dataForTheTile[i].possibleMoves, tileObject)
-            // console.log( this.state.dataForTheTile.possibleMoves.length)
-          } else { console.log('goodbye') }
+          //what tile id has the currentVal of 0?
+          //not looking for ONLY the current val but the corresponding id
+          //current val signals where to check the id against the possible moves
+          var currentMoveToCheck = this.state.dataForTheTile[i].id
+          // console.log(currentMoveToCheck)
+
+          //compare the //posiblemvoes array  for the tile that was clicked on
+          if (posibleMoveID == currentMoveToCheck) {
+            console.log('can switch')
+            // create a new array with updated values
+            let copy = this.state.dataForTheTile
+            // console.log(this.state.dataForTheTile)
+            let temp = 0
+            temp = copy[tileID].currentValue
+            copy[tileID].currentValue = copy[i].currentValue
+            copy[i].currentValue = temp
+            console.log(copy)
+            this.setState({ dataForTheTile: copy })
+
+          } else { console.log('can not switch') }
 
         }
     }
   }
-  // let clicked_on_tile = tileObject
-
-  //     if (clicked_on_tile.possibleMoves[i] = this.state.dataForTheTile.id) {
-
-  //     }
-  //   }
-  //   }
-  //  }
-  //   //
-
+  
 
   // console.log(clicked_on_tile.possibleMoves[i])
   // console.log(clicked_on_tile.currentValue)
@@ -85,45 +87,9 @@ class App extends Component {
   // this.swapFunction()
 
 
-
-
-  //function 
-  //  that looks at the clicked on tiles [possibleMoves array]
-  //    loop throughh the clicked_on_tile.possibleMoves.length
-
-
-  // }
-
-  //how to find the tile with the value 0
-  // it would have to be close?
-  // the current tile clicked on can on ly move to another tile if
-  // the current valuse is the same as the posiiton
-  //   check (if)the tile for tile with current value of 0 ?
-  // if (clicked_on_tile.possibleMoves)
-
-
-
-
-  //  loop through the whole obbject aray 
-
-  //         if the tile that has a cuurent value of 0 check its id: 
-  //            if that id is  one of the numbers in the clicked_on_tile.possibleMoves[]
-  //        if the tile with a currentValue of 0 is within clicked_on_tile.possibleMoves[]
-  //        
-
-  //do I want to sawp this currentValue
-  //current value = current position
-  //thru array and determin if value at current value is id 
-  //possiblr move array = 
-  //is possible moves loop throu arrayon item 
-
-
-
-
-
-
-
-
+  componentDidUpdate() {
+    console.log("state was set", this.state.dataForTheTile);
+  }
 
 
 

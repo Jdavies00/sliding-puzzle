@@ -163,3 +163,10 @@
     //     Tiles[possibleMoves[i]].value = currentValue
     //   }
     // }
+
+    // this.setState({dataForTheTile[tileObject].currentValue : dataForTheTile[i].currentValue})
+          // this.setState.dataForTheTile[tileObject]({currentValue :[i].currentValue})
+
+          //  let tempArry = this.state.dataForTheTile[i].currentValue
+          //  console.log(tempArry)
+          //   this.setState({ tileObject: tempArry })

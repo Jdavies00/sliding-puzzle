@@ -76,3 +76,66 @@ class App extends Component {
 
 
     export default App;
+
+
+
+
+
+*iteration 2*
+
+
+clickfunction(tileID) {
+    for (let i = 0; i < 16; i++) {
+      //find the 0 value
+      var evilTileValue = this.state.dataForTheTile[i].currentValue
+      if (evilTileValue === 0)
+
+        //loop the array of possible moves of 
+        for (let j = 0; j < this.state.dataForTheTile[tileID].possibleMoves.length; j++) {
+          // console.log(this.state.dataForTheTile[i].possibleMoves, tileObject)
+
+          // find the possible moves for the 0 value 
+          // confirm valid moves
+          //if I click on id1 possible moves j is going to [0,2,5]
+            // dose 
+            //if this .seats date fot the tile 
+            // this.state.dataForTheTile[this.state.dataForTheTile[i].possibleMoves[j]]
+            // this.state.dataForTheTile[0] == tileObject
+            var posibleMoveID = this.state.dataForTheTile[tileID].possibleMoves[j];
+            var currentMoveToCheck = this.state.dataForTheTile[i].currentValue
+          if (posibleMoveID == currentMoveToCheck) {
+            console.log('can switch')
+            // create a new array with updated values
+            let copy = this.state.dataForTheTile
+            console.log(this.state.dataForTheTile)
+            let temp = 0
+            temp = copy[tileID].currentValue
+            copy[tileID].currentValue = copy[i].currentValue
+            copy[i].currentValue = temp
+            console.log(copy)
+            this.setState({dataForTheTile:copy})
+          
+            // console.log(this.state.dataForTheTile[i].possibleMoves, tileObject)
+            // console.log( this.state.dataForTheTile.possibleMoves.length)
+          } else { console.log('can not switch') }
+
+        }
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
